@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.udc.code.generate">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <application
+        android:installLocation="preferExternal"
+        android:hardwareAccelerated="true"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:roundIcon="@drawable/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        android:fullBackupContent="false">
+        <activity
+            android:exported="true"
+            android:name="com.udc.code.generate.ui.activities.SplashActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.udc.code.generate.ui.activities.ScannerActivity"
+            android:label="@string/app_name"
+            android:clearTaskOnLaunch="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.HistoryActivity"
+            android:label="@string/history"
+            android:parentActivityName="com.udc.code.generate.ui.activities.ScannerActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.HelpActivity"
+            android:label="@string/help"
+            android:parentActivityName="com.udc.code.generate.ui.activities.ScannerActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity"
+            android:label="@string/QRGenerator"
+            android:parentActivityName="com.udc.code.generate.ui.activities.ScannerActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.TutorialActivity"
+            android:parentActivityName="com.udc.code.generate.ui.activities.ScannerActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="com.udc.code.generate.ui.activities.SettingsActivity"
+            android:parentActivityName="com.udc.code.generate.ui.activities.ScannerActivity"
+            android:label="@string/Settings"/>
+        <activity android:name="com.udc.code.generate.ui.activities.ResultActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.QrGeneratorDisplayActivity"
+            android:label="URL"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.MailEnterActivity"
+            android:label="E-Mail"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.TelEnterActivity"
+            android:label="Phone number"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.UrlEnterActivity"
+            android:label="URL"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.SmsEnterActivity"
+            android:label="SMS"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.GeoLocationEnterActivity"
+            android:label="Geo location"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.MeCardEnterActivity"
+            android:label="MeCard"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.BizCardEnterActivity"
+            android:label="BizCard"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.MmsEnterActivity"
+            android:label="MMS"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.WifiEnterActivity"
+            android:label="WIFI"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.VcardEnterActivity"
+            android:label="vcard"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.MarketEnterActivity"
+            android:label="Market"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity"/>
+        <activity
+            android:name="com.udc.code.generate.ui.activities.generator.TextEnterActivity"
+            android:label="Text"
+            android:parentActivityName="com.udc.code.generate.ui.activities.generator.QrGeneratorOverviewActivity"/>
+
+        <activity android:name="com.udc.code.generate.ui.AboutActivity"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.secuso.qrscanner.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider_path" />
+        </provider>
+    </application>
+
+</manifest>
